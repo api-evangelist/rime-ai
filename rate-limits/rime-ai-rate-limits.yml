@@ -5,7 +5,7 @@ provider: Rime
 providerId: rime-ai
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -15,21 +15,42 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Rime. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Rime caps capacity primarily through concurrent generation slots tied to plan tier and via
+  per-tier custom voice clone caps. HTTP 429 backoff applies; specific RPS limits not public.
+notes: Concurrent generation count is the primary scaling lever.
 sources:
-- https://rime.ai/
+- https://www.rime.ai/pricing
+- https://docs.rime.ai/
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Concurrent Generations (Pay as You Go)
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: concurrent_generations
+  limit: 5
+- name: Concurrent Generations (Growth)
+  scope: account
+  metric: concurrent_generations
+  limit: 20
+- name: Concurrent Generations (Scale)
+  scope: account
+  metric: concurrent_generations
+  limit: -1
+  notes: Unlimited / negotiated.
+- name: Custom Voice Clones (Growth)
+  scope: account
+  metric: voice_clones
+  limit: 2
+- name: HTTP Requests
+  scope: account
+  metric: requests
+  limit: not publicly documented
 policies:
 - name: Backoff Strategy
   description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+- name: Concurrency Provisioning
+  description: Upgrade tier when concurrent generation usage approaches plan cap.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

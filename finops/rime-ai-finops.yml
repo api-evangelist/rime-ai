@@ -5,7 +5,7 @@ provider: Rime
 providerId: rime-ai
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -15,10 +15,14 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Rime. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps view of Rime. Rime is priced per minute of TTS audio generated, with
+  Growth-tier customers committing to a $5K annual minimum for ~10% rate discount. Scale is
+  enterprise-priced.
+notes: Single primary meter (minutes of synthesized audio); plan-tier choice drives unit cost.
 sources:
-- https://rime.ai/
+- https://www.rime.ai/pricing
+- https://docs.rime.ai/
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,7 +33,7 @@ alignedWith:
 publisherName: Rime
 serviceCategory: AI
 billingModel:
-  pricingCategory: To Be Reconciled
+  pricingCategory: Usage-Based (Per Minute)
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
@@ -37,7 +41,7 @@ billingModel:
   - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Rime
+  ServiceName: Rime TTS
   ServiceCategory: AI
   ProviderName: Rime
   PublisherName: Rime
@@ -45,22 +49,35 @@ focusColumns:
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: tts_minutes
+  description: Minutes of TTS audio synthesized.
+  unit: minute
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - model
+  - voice
+- name: voice_clones
+  description: Custom voice clone count (capacity).
+  unit: voice_clone
+  aggregation: max
+  dimensions:
+  - account
+- name: annual_commit
+  description: Growth-tier minimum $5K annual commitment.
+  unit: USD
+  aggregation: sum
+  dimensions:
+  - account
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Track minutes synthesized per voice/model in Rime dashboard.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Tag voices and integrations to business units.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Move to Growth tier when annual TTS spend exceeds $5K to capture rate discount.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign a budget owner per integration consuming TTS.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

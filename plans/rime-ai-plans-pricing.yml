@@ -5,7 +5,7 @@ provider: Rime
 providerId: rime-ai
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - AI
 - Voice
@@ -13,29 +13,97 @@ tags:
 - Realtime
 - Conversational
 - Plans
-description: Placeholder plans/pricing artifact for Rime. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+description: >-
+  Rime offers per-minute TTS pricing across three commercial tiers (Pay-as-you-go, Growth,
+  Scale) plus startup grants. Synthesis is priced per minute of generated audio
+  (~1,000 characters/minute) with concurrency caps tied to plan.
+notes: Reconciled from Rime's public pricing page (May 2026). Free tier exists but specifics not detailed publicly.
 sources:
-- https://rime.ai/
+- https://www.rime.ai/pricing
 plans:
-- id: rime-ai-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: rime-ai-payg
+  name: Pay as You Go
+  type: usage
+  description: No commitment per-minute pricing.
   entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: varies
+  - label: TTS
+    name: tts
+    type: per_minute
+    metric: minute
     limit: -1
     timeFrame: usage
     geo: global
     unit: 1
-    price: see https://rime.ai/
+    price: 0.030 USD/min (~1,000 chars/min)
     userMultiplied: false
   elements:
-  - name: Pending Reconciliation
+  - name: 5 concurrent generations
+  - name: All models
+  - name: Public Slack support
+- id: rime-ai-growth
+  name: Growth
+  type: subscription
+  description: Most popular tier with $5K minimum annual commit and ~10% discount.
+  entries:
+  - label: TTS
+    name: tts
+    type: per_minute
+    metric: minute
+    limit: -1
+    timeFrame: usage
+    geo: global
+    unit: 1
+    price: 0.027 USD/min
+    userMultiplied: false
+  - label: Annual Commit Minimum
+    name: annual_commit
+    type: flat
+    metric: contract
+    limit: 1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: 5000 USD/year minimum
+    userMultiplied: false
+  elements:
+  - name: 20 concurrent generations
+  - name: 2 custom voice clones
+  - name: BAA / SOC 2 reports
+- id: rime-ai-scale
+  name: Scale
+  type: enterprise
+  description: Custom pricing for high-volume platforms.
+  entries:
+  - label: Enterprise Contract
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Unlimited concurrent generations
+  - name: Unlimited custom voice clones
+  - name: SLAs and dedicated support
+  - name: Deployment flexibility
+- id: rime-ai-startup-grant
+  name: Startup Grant
+  type: free
+  description: Up to 3 months free for early-stage companies.
+  entries:
+  - label: Grant
+    name: grant
+    type: flat
+    metric: month
+    limit: 3
+    timeFrame: trial
+    geo: global
+    unit: 1
+    price: 0 USD
+    userMultiplied: false
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
