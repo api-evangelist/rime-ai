@@ -1,7 +1,7 @@
 aid: rime-ai
 url: https://raw.githubusercontent.com/api-evangelist/rime-ai/refs/heads/main/apis.yml
 name: Rime
-x-type: company
+kind: company
 description: >-
   Rime is a realtime text-to-speech platform optimized for low-latency conversational agents.
   Models include Arcana v3, Arcana v2, Mist v3, and Mist v2. The TTS API supports streaming
