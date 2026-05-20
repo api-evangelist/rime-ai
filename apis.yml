@@ -41,6 +41,8 @@ apis:
       - type: LLMsTxt
         url: https://docs.rime.ai/llms.txt
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/rime-ai
   - type: Website
     url: https://rime.ai/
   - type: Documentation
