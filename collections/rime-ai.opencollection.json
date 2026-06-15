@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Plant Store",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GET /plants",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://sandbox.mintlify.com/plants",
+        "params": [
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query",
+            "description": "The maximum number of results to return"
+          }
+        ]
+      },
+      "docs": "Returns all plants from the system that the user has access to"
+    },
+    {
+      "info": {
+        "name": "POST /plants",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "http://sandbox.mintlify.com/plants",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a new plant in the store"
+    },
+    {
+      "info": {
+        "name": "DELETE /plants/{id}",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "http://sandbox.mintlify.com/plants/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path",
+            "description": "ID of plant to delete"
+          }
+        ]
+      },
+      "docs": "Deletes a single plant based on the ID supplied"
+    }
+  ],
+  "bundled": true
+}
