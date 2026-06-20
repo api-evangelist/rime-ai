@@ -7,7 +7,7 @@ description: >-
   Models include Arcana v3, Arcana v2, Mist v3, and Mist v2. The TTS API supports streaming
   HTTP, WebSocket (binary and JSON), Server-Sent Events, and JSON envelopes for MP3, mu-law,
   OGG, and WAV audio.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AI
   - Voice
@@ -24,7 +24,7 @@ apis:
       Realtime text-to-speech API supporting streaming HTTP, WebSocket, and SSE delivery for
       Arcana and Mist models. Authentication via API key. Audio formats include MP3, mu-law,
       OGG, and WAV. List voice and voice details endpoints provide voice catalog metadata.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docs.rime.ai/api-reference
     baseURL: https://users.rime.ai
     tags:
