@@ -38,7 +38,7 @@ apis:
         url: https://docs.rime.ai/api-reference
       - type: Pricing
         url: https://www.rime.ai/pricing
-      - type: LLMsTxt
+      - type: LlmsText
         url: https://docs.rime.ai/llms.txt
 common:
   - type: LinkedIn
