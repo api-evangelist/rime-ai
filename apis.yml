@@ -41,6 +41,12 @@ apis:
       - type: LlmsText
         url: https://docs.rime.ai/llms.txt
 common:
+  - type: DomainSecurity
+    url: security/rime-ai-domain-security.yml
+  - type: Authentication
+    url: authentication/rime-ai-authentication.yml
+  - url: https://rime.ai/resources/
+    type: Blog
   - type: LinkedIn
     url: https://www.linkedin.com/company/rime-ai
   - type: Website
