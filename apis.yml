@@ -41,6 +41,8 @@ apis:
       - type: LlmsText
         url: https://docs.rime.ai/llms.txt
 common:
+  - type: AgenticAccess
+    url: agentic-access/rime-ai-agentic-access.yml
   - type: DomainSecurity
     url: security/rime-ai-domain-security.yml
   - type: Authentication
