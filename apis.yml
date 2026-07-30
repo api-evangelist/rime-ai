@@ -7,7 +7,20 @@ description: >-
   Models include Arcana v3, Arcana v2, Mist v3, and Mist v2. The TTS API supports streaming
   HTTP, WebSocket (binary and JSON), Server-Sent Events, and JSON envelopes for MP3, mu-law,
   OGG, and WAV audio.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rime-ai.png
 tags:
   - AI
   - Voice
@@ -18,28 +31,38 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: rime-ai:tts
-    name: Rime TTS API
-    description: >-
-      Realtime text-to-speech API supporting streaming HTTP, WebSocket, and SSE delivery for
-      Arcana and Mist models. Authentication via API key. Audio formats include MP3, mu-law,
-      OGG, and WAV. List voice and voice details endpoints provide voice catalog metadata.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docs.rime.ai/api-reference
-    baseURL: https://users.rime.ai
-    tags:
-      - TTS
-      - Streaming
-      - WebSocket
-      - SSE
-      - Realtime
-    properties:
-      - type: Documentation
-        url: https://docs.rime.ai/api-reference
-      - type: Pricing
-        url: https://www.rime.ai/pricing
-      - type: LlmsText
-        url: https://docs.rime.ai/llms.txt
+- aid: rime-ai:tts
+  name: Rime TTS API
+  description: >-
+    Realtime text-to-speech API supporting streaming HTTP, WebSocket, and SSE delivery for Arcana and
+    Mist models. Authentication via API key. Audio formats include MP3, mu-law, OGG, and WAV. List voice
+    and voice details endpoints provide voice catalog metadata.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.rime.ai/api-reference
+  baseURL: https://users.rime.ai
+  tags:
+  - TTS
+  - Streaming
+  - WebSocket
+  - SSE
+  - Realtime
+  properties:
+  - type: Documentation
+    url: https://docs.rime.ai/api-reference
+  - type: Pricing
+    url: https://www.rime.ai/pricing
+  - type: LlmsText
+    url: https://docs.rime.ai/llms.txt
+- aid: rime-ai:rime-ai-plants-api
+  name: Rime Plants API
+  description: The Plants API from Rime — 2 operation(s) for plants.
+  humanURL: https://docs.rime.ai/api-reference
+  baseURL: https://users.rime.ai
+  tags:
+  - Plants
+  properties:
+  - type: OpenAPI
+    url: openapi/rime-ai-plants-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/rime-ai-agentic-access.yml
