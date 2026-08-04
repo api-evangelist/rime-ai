@@ -1,0 +1,14 @@
+{
+  "provider": "rime-ai",
+  "sources": [
+    "rime-ai-plants-api-openapi.yml"
+  ],
+  "outputs": [
+    "rime-ai-plants-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
