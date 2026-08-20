@@ -22,6 +22,12 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rime-ai.png
 tags:
+  - Artificial Intelligence
+  - Voice
+  - TTS
+  - Real-Time
+  - Conversational
+tags_raw:
   - AI
   - Voice
   - TTS
@@ -41,6 +47,12 @@ apis:
   humanURL: https://docs.rime.ai/api-reference
   baseURL: https://users.rime.ai
   tags:
+  - TTS
+  - Streaming
+  - WebSocket
+  - SSE
+  - Real-Time
+  tags_raw:
   - TTS
   - Streaming
   - WebSocket
