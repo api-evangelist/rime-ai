@@ -1,0 +1,31 @@
+generated: '2026-09-11'
+method: probed
+source: https://docs.rime.ai/docs/mcp.md
+status: published
+server:
+  name: rime-ai
+  transport: http
+  url: https://mcp.rime.ai/mcp
+deployment:
+  mode: remote
+  endpoint: https://mcp.rime.ai/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-11 (endpoint found in the provider's own documentation, then probed)
+tools_count: 6
+tools:
+- name: list_voices
+  description: ''
+- name: get_voice_details
+  description: ''
+- name: check_dictionary
+  description: ''
+- name: normalize_text
+  description: ''
+- name: synthesize_speech
+  description: ''
+- name: generate_integration
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
