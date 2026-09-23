@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: OpenAPI Plant Store Plants API
   description: A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification
@@ -39,6 +39,10 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
       - Plants
+      summary: Get plants
+      x-summary-source: derived
+      operationId: getPlants
+      x-operation-id-source: derived
     post:
       description: Creates a new plant in the store
       requestBody:
@@ -63,6 +67,10 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
       - Plants
+      summary: Create plants
+      x-summary-source: derived
+      operationId: postPlants
+      x-operation-id-source: derived
   /plants/{id}:
     delete:
       description: Deletes a single plant based on the ID supplied
@@ -86,19 +94,12 @@ paths:
                 $ref: '#/components/schemas/Error'
       tags:
       - Plants
+      summary: Delete plants by id
+      x-summary-source: derived
+      operationId: deletePlantsById
+      x-operation-id-source: derived
 components:
   schemas:
-    NewPlant:
-      allOf:
-      - $ref: '#/components/schemas/Plant'
-      - required:
-        - id
-        type: object
-        properties:
-          id:
-            description: Identification number of the plant
-            type: integer
-            format: int64
     Plant:
       required:
       - name
@@ -110,6 +111,17 @@ components:
         tag:
           description: Tag to specify the type
           type: string
+    NewPlant:
+      allOf:
+      - $ref: '#/components/schemas/Plant'
+      - required:
+        - id
+        type: object
+        properties:
+          id:
+            description: Identification number of the plant
+            type: integer
+            format: int64
     Error:
       required:
       - error

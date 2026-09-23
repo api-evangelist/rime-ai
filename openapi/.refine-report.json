@@ -1,7 +1,7 @@
 {
   "provider": "rime-ai",
   "sources": [
-    "rime-ai-plants-api-openapi.yml"
+    "_original/rime-ai-openapi.json"
   ],
   "outputs": [
     "rime-ai-plants-api-openapi.yml"
@@ -9,6 +9,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rime-ai-openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "rime-ai-openapi.json: tagged paths GET /plants -> Plants",
+    "rime-ai-openapi.json: tagged paths POST /plants -> Plants",
+    "rime-ai-openapi.json: tagged paths DELETE /plants/{id} -> Plants",
+    "rime-ai-openapi.json: declared missing tag: Plants",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "rime-ai-plants-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
