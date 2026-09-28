@@ -16,16 +16,30 @@ deployment:
 tools_count: 6
 tools:
 - name: list_voices
-  description: ''
+  description: 'List Rime''s voice catalog as JSON keyed by model and language: { modelId: { langCode:
+    [speaker, ...] } }. No API key required. Optionally filter by `model` (e.g. ''coda'', ''mistv3'',
+    ''arcana'') and/or `language` (the ISO 639-2 catalog key, e.g.'
 - name: get_voice_details
-  description: ''
+  description: Return detailed metadata for Rime voices (gender, age, accent/dialect, country, genre,
+    model, and language). This is where the `lang` value for synthesize_speech comes from, and it carries
+    the demographic metadata you use to choose a voice.
 - name: check_dictionary
-  description: ''
+  description: Check which words are NOT in Rime's pronunciation dictionary. Returns the list of out-of-dictionary
+    words; an empty list means all words are covered. Out-of-dictionary words still synthesize, but you
+    may want to add custom pronunciations fo
 - name: normalize_text
-  description: ''
+  description: Preview how Rime normalizes text before synthesis — exactly what the TTS model will speak.
+    Useful for debugging numbers, dates, phone numbers, currency, and abbreviations. Returns the normalized
+    string. Requires RIME_API_KEY.
 - name: synthesize_speech
-  description: ''
+  description: 'Generate an MP3 speech sample from text using Rime TTS, rendered in an inline audio player.
+    All arguments are optional: with none, it plays a default sample in the canonical demo voice (`lyra`
+    on the `coda` flagship model) — the fastest way'
 - name: generate_integration
-  description: ''
+  description: Generate a ready-to-run code snippet for wiring Rime TTS into a voice agent framework (Pipecat
+    or LiveKit). Returns install commands, code, and .env notes. No network call. Pipecat is Python-only.
+    For LiveKit, `mode` selects 'plugin' (use y
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
