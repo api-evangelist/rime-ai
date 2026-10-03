@@ -100,17 +100,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Error:
-      required:
-      - error
-      - message
-      type: object
-      properties:
-        error:
-          type: integer
-          format: int32
-        message:
-          type: string
     Plant:
       required:
       - name
@@ -133,6 +122,17 @@ components:
             description: Identification number of the plant
             type: integer
             format: int64
+    Error:
+      required:
+      - error
+      - message
+      type: object
+      properties:
+        error:
+          type: integer
+          format: int32
+        message:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http
