@@ -110,3 +110,48 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - compute
+  - negotiated
+  - period
+  plans:
+  - name: Pay as You Go
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Growth
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    - negotiated
+    periods:
+    - per-use
+    - year
+  - name: Scale
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
+  - name: Startup Grant
+    access: free
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - term
